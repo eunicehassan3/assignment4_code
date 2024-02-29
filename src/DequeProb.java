@@ -10,14 +10,13 @@ public class DequeProb {
                 return index;
             } else if (q.peekLast() == y) {
                 return index + q.size() - 1;
-            } else {
-                q.removeFirst();
-                q.removeLast();
             }
-
             l++;
-            r++;
+            r--;
             index++;
+            q.removeFirst();
+            q.removeLast();
+
         }
         return -1;
 

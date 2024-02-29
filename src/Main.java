@@ -6,6 +6,7 @@ public class Main {
         balancedBrackets b = new balancedBrackets();
         DNA2RNA dr = new DNA2RNA();
         InfixToPostfix ip = new InfixToPostfix();
+        RNA2Protein rp = new RNA2Protein();
         DequeProb dp = new DequeProb();
         Deque<Integer> d = new LinkedList<>();
         d.add(6);
@@ -14,7 +15,7 @@ public class Main {
         d.add(9);
         d.add(2);
 
-        System.out.println(dp.findInDeque(d,78));
+        System.out.println(dp.findInDeque(d,98));
 
         System.out.println(b.balancedBracket("{[()]}"));
         System.out.println(b.balancedBracket("{[(])}"));
@@ -22,6 +23,9 @@ public class Main {
         System.out.println(ip.infixToPostfix("a+b*(c^d-e)^(f+g*h)-i"));
 
         System.out.println(dr.DNAConverter("AGCTGGGAAACGTAGGCCTA"));
+
+        System.out.println(rp.RNAConverter("AGCUGGGAAACGUAGGCCUA"));
+        System.out.println(rp.RNAConverter("UAAAGAGAAGCCAGC"));
 
     }
 }

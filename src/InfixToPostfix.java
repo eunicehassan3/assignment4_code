@@ -6,24 +6,30 @@ public class InfixToPostfix {
         String postfix = "";
         char[] arr = infix.toCharArray();
         for(char c: arr){
-            if(Character.isDigit(c)){
-                stack.push(c);
+            if(Character.isDigit(c) || Character.isAlphabetic(c)){
+               postfix += c;
             }
             else if (c == '('){
                 stack.push(c);
-            } else if (c == ')'){
-                while(!stack.isEmpty() && stack.peek() != '('){
+            }
+            else if (c == ')'){
+                while (!stack.isEmpty() && !(stack.peek() == '(')){
                     postfix += stack.pop();
                 }
                 stack.pop();
             }
             else{
-                while(!stack.isEmpty() && findValue(stack.peek()) > findValue(c)) {
+                while(!stack.isEmpty() && findValue(stack.peek()) >= findValue(c)) {
                         postfix += stack.pop();
                     }
                 stack.push(c);
                 }
             }
+
+        while(!stack.isEmpty()){
+            postfix += (stack.pop());
+        }
+
         return postfix;
     }
 
